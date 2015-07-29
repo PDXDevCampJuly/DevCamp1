@@ -1,4 +1,4 @@
 Bool_game.py
 *.pyc
 .DS_Store
-secret.py
+secret.txt
