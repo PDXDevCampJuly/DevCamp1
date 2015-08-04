@@ -69,8 +69,47 @@ def insertion_sort(our_list):
 
 
 ###  Divide and Conquer approach ####
+def sort_thenMerge(left_list, right_list, merged_list):
+    leftIndex, rightIndex, mergedIndex = 0, 0, 0
+    n1, n2 = len(left_list), len(right_list)
+
+    while leftIndex < n1 and rightIndex < n2:
+        if left_list[leftIndex] < right_list[rightIndex]:
+            merged_list[mergedIndex] = left_list[leftIndex]
+            leftIndex = leftIndex + 1
+        else:
+            merged_list[mergedIndex] = right_list[rightIndex]
+            rightIndex = rightIndex + 1
+        mergedIndex = mergedIndex + 1
+
+    while leftIndex < n1:
+        merged_list[mergedIndex] = left_list[leftIndex]
+        leftIndex = leftIndex + 1
+        mergedIndex = mergedIndex + 1
+
+    while rightIndex < n2:
+        merged_list[mergedIndex] = right_list[rightIndex]
+        rightIndex = rightIndex + 1
+        mergedIndex = mergedIndex + 1
+    return merged_list
+
 def merge_sort(our_list):
-    index1, index2, index3 = 0, 0, 0
+    if len(our_list) == 1:
+        return our_list
+    else:
+        middle = len(our_list) // 2
+        list1 = merge_sort(our_list[:middle])
+        list2 = merge_sort(our_list[middle:])
+        list3 = []
+        while len(list1) > 0 and len(list2) > 0:
+            if list[0] <= list[2]:
+                list3.append(list1.pop(0))
+            else:
+                list3.append(list2.pop(0))
+        return list3 + list1 + list2
+    pass
+
+
 
 
     #sorted.append(upper_half.pop(0))
@@ -79,4 +118,5 @@ def merge_sort(our_list):
     #Our first recursive algorithm.
     #""
 print(output)
-print(merge_sort(output))
+print(sort_thenMerge([2,6,9], [4,7,8], [0,0,0,0,0,0]))
+print(merge_sort(our_list))
