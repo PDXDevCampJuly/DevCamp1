@@ -33,7 +33,7 @@ class Player:
         """ Make a choice whether to hit or to stay """
         # Ask the player via input if they want to hit or stay
         # If player requests a hit
-            # Dealer deals a card (calls from Overlord)
+            # Dealer deals a card
             #recompute the score
                 #If Player busts
                     # Print "You lost!!!"

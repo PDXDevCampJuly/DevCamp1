@@ -23,5 +23,5 @@ class Card:
         self.is_hidden = False
 
     def __repr__(self):
-    """tells python how to print a card."""
+        """tells python how to print a card."""
         return "{} of {}".format(self.face, self.suit)

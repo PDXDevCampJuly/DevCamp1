@@ -13,7 +13,7 @@ class Overlord:
     def start_game(num_players):
         """ determine number of players, deals cards, starts turn  """
         ### make deck
-        ### shuffle cards 
+        ### shuffle cards
         ### make players
         ### deal 2 cards into hand
         ### check score_hand
@@ -25,21 +25,25 @@ class Overlord:
 
     def turn():
         """ A decision to hit or stay until you reach a value of 21 or as close to it without busting."""
-        ### input Hit or stay
-        ### if hit
-            # dealer pops a card to players hand,
-            # then check score
-                # if Bust
-                    #print BUSTED
-                    #next players turn
-                # else prompt again to hit or stay
-            ### next players turn
+        ### input Hit or stay via decision function
+         ###  If player requests a hit
+            # Dealer deals a card
+            #recompute the score
+                #If Player busts
+                # print BUSTED
+                # else
+                    # Go back to Input Hit or stay
+        #else
+            #stay
+            # Return the value of the score
+        # Move on to the next player's turn
         pass
 
     def determine_winner():
         """ Compare value of players hand and then crown winner. """
         # get each score_hand and
         # find highest - crown that playah!
+        # 
         pass
 
     def play_again():
