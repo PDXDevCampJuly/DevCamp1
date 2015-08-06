@@ -1,49 +1,70 @@
-from classCard import Card
-from classDeck import Deck
+from classCard import *
+from classDeck import *
 
 class Overlord:
 
-    def __init__(self, num_players,):
+    def __init__(self, num_players):
         self.num_players = num_players
         self.players = []
+        self.deck = Deck()
+        self.dealer = Dealer()
 
-    def make_players():
-        pass
+    def make_player(self, player_name):
+        new_player = Player(player_name)
+        self.players.append(new_player)
 
-    def start_game(num_players):
+
+    def start_game(self):
         """ determine number of players, deals cards, starts turn  """
-        ### make deck
-        ### shuffle cards
         ### make players
-        ### deal 2 cards into hand
-        ### check score_hand
-        ### if dealer === 21, then BLACKJACK
-            ### game is over, dealer wins
-        ### else
-            ### start turn
-        pass
+        for x in range(self.num_players):
+            input_name = input(" You have a name. What is it? ")
+            self.make_player(input_name)
 
-    def turn():
+        ### deal 2 cards into hand
+        for player in self.players:
+            player.hand.append(self.deck.deal_card())
+            player.hand.append(self.deck.deal_card())
+        self.dealer.hand.append(self.deck.deal_card())
+        self.dealer.hand.append(self.deck.deal_card())
+        ### check score_hand
+        for player in self.players:
+            player.status = player.score_hand()
+        self.dealer.status = self.dealer.score_hand()
+
+        # This loop gives each player a full turn
+        for player in self.players:
+            while player.status == False: #change to player.finished for cleaner code?
+                self.turn(player)
+
+        while self.dealer.status == False:
+            self.turn(self.dealer)
+
+
+    def turn(self, player):
+
         """ A decision to hit or stay until you reach a value of 21 or as close to it without busting."""
-        ### input Hit or stay via decision function
+
+        input_decision = player.decision()
          ###  If player requests a hit
+        input_decision = input_decision.lower()
+
+        if input_decision == "hit":
+            player.hand.append(self.deck.deal_card())
             # Dealer deals a card
-            #recompute the score
-                #If Player busts
-                # print BUSTED
-                # else
-                    # Go back to Input Hit or stay
-        #else
-            #stay
-            # Return the value of the score
-        # Move on to the next player's turn
-        pass
+            player.status = player.score_hand()
+
+        else:
+            player.status = True
+
+
+
 
     def determine_winner():
         """ Compare value of players hand and then crown winner. """
         # get each score_hand and
         # find highest - crown that playah!
-        # 
+        #
         pass
 
     def play_again():
