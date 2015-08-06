@@ -33,21 +33,37 @@ class Player:
     def decision(self):
         """ Make a choice whether to hit or to stay """
         ### input Hit or stay via decision function
-        return input("We're waiting... (Hit or Stay) >>> ")
+        player_decision = ""
+        while player_decision == "":
+            player_decision = input("\nWe're waiting {}... (Hit or Stay) >>> ".format(self.player_name)).lower()
+            if player_decision not in ["hit", "stay"]:
+                print("What is wrong with you? Do you want to hit or stay??")
+                player_decision = ""
+        return player_decision
 
+
+    def print_hand(self):
+        print("\nPay attention {}, I gave you: {}".format(self.player_name, self.hand))
 
 
     def score_hand(self):
         count = 0
         for card in self.hand:
             count += card.value
+        if count > 21:
+            for card in self.hand:
+                card.demote()
+                count = 0
+                for card in self.hand:
+                    count += card.value 
+                if count <= 21:
+                    break             
+
+
+
         self.score = count
         #check for Aces later!
-        if self.score == 21:
-            print("BLACKHAWK!!!!")
-            return True
-        elif self.score > 21:
-            print("Pay up suckah!!")
+        if self.score >= 21:
             return True
         else:
             return False
@@ -63,3 +79,7 @@ class Dealer(Player):
             return "hit"
         else:
             return "stay"
+
+    def print_hand(self): 
+        pass
+

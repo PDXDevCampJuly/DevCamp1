@@ -24,4 +24,9 @@ class Card:
 
     def __repr__(self):
         """tells python how to print a card."""
-        return "{} of {}".format(self.face, self.suit)
+        return "{} {}".format(self.face, self.suit)
+
+    def demote(self):
+        if self.value == 11:
+            self.value = 1
+            print("Your Ace is now = 1")
