@@ -12,7 +12,7 @@ class Overlord:
 
     def make_player(self, player_name):
         new_player = Player(player_name)
-        self.players.append(new_player)
+        self.players.append(new_player) 
 
 
     def start_game(self):
@@ -35,7 +35,7 @@ class Overlord:
                 if player.score == 21:
                     print("\nYou've achieved Blackjack, {}.".format(player.player_name))
                 elif player.score > 21: 
-                    print("\nYou've busted, {}. The House always wins.".format(player.player_name))
+                    print("\nYou've busted, {}. The House always wins!".format(player.player_name))
             self.dealer.hand.append(self.deck.deal_card())
             self.dealer.hand.append(self.deck.deal_card())
             print("\nDealer is showing: {}, {}".format('\U0001F0A0',self.dealer.hand[1]))
@@ -50,9 +50,9 @@ class Overlord:
                 while player.status == False: #change to player.finished for cleaner code?
                     self.turn(player)
                     if player.score == 21:
-                        print("You've achieved Blackjack, {}.".format(player.player_name))
+                        print("Blackjack for you, {}.".format(player.player_name))
                     elif player.score > 21:
-                        print("You've busted, {}. The House always wins.".format(player.player_name))
+                        print("You've busted, {}. The House wins again! ".format(player.player_name))
             while self.dealer.status == False:
                 self.turn(self.dealer)
 
@@ -88,12 +88,12 @@ class Overlord:
         if player.score == 21: 
             print("You've won, {}. Don't let it go to your head.".format(player.player_name))
         elif player.score > 21:
-            print("You've busted, {}. Your cash is mine.".format(player.player_name))
+            print("You've busted, {}. Your cash is mine! ".format(player.player_name))
         else:
             if player.score > self.dealer.score:
                 print("You beat me, {}. This displeases me.".format(player.player_name))
             elif self.dealer.score > 21: 
-                print("I've gone over, {}. It won't happen again.".format(player.player_name))
+                print("I've gone over, {}. You've won - this time.".format(player.player_name))
             else: 
                 print("I've beaten you, {}. Get used to it. ".format(player.player_name))
 
@@ -101,7 +101,7 @@ class Overlord:
 
     def play_again(self):
         """ Asks the players if they want to play again and then starts the game over with players."""
-        another_game = input("Would you care to play again, jerk? Yes or No >>>" )
+        another_game = input("Would you care to play again -- if you're not afraid of losing? Yes or No >>>" )
         another_game = another_game.lower()
 
         if another_game == "yes":
