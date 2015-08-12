@@ -19,6 +19,7 @@ class Die:
     def __repr__(self):
         """This tells python what to show."""
         return "{}".format(self.currentValue)
+        #this function doesn't work## I don't think... ask tiffany
 
 
 
