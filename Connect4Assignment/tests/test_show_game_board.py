@@ -37,38 +37,6 @@ class ShowGameBoardTest(unittest.TestCase):
         self.new_view.show_game_board(game_board)
         self.assertEqual(mock_stdout.getvalue(), game_board_view)
 
-    @patch('builtins.input', side_effect=["baad", 7, 2])
-    def test_move_prompt_invalid_move(self,inputted_value):
-        """We mock the standard input and provide “baad”, 7, 2 as the user
-        input. Check that the player is re-prompted the first two times,
-        then 2 is returned."""
-        move = self.new_view.prompt_player_to_move("George", "r")
-
-        self.assertEqual(move, 2)
-
-
-    def test_show_game_board_invalid_table_contents(self):
-        """Create sample game board with 6 row by 7 columns of “rowdy”.
-        Check that the function raises a TypeError exception and displays a
-        ‘expected maximum one character as game board table  entries’ message.
-        """
-        game_board = [
-            ["b", "rowdy", "r"],
-            ["r", "r", "b"],
-            ["b", "r", "r", "b"],
-            [],
-            ["b", "r"],
-            ["b", "b", "r"],
-            ["r"]
-        ]
-
-
-        with self.assertRaises(TypeError):
-            self.new_view.show_game_board(game_board)
-
-
-
-
 
 if __name__ == '__main__':
     unittest.main()

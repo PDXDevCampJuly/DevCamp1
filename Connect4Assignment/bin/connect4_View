@@ -32,16 +32,10 @@ We mock the standard input and provide “baad”, 7, 2 as the user input. Check
 
 show_game_board(list of list of str)
 /*
-Shows the current view of the game_board. If arg is not a valid data structure (6 rows by 7 columns - list of list of string of 1 or 0 character) then a TypeError exception is raised.
+Shows the current view of the game_board.
 */
 1. test_show_game_board_valid
 Create sample game board. Check that the correct displayed message is output.
-
-2. test_show_game_board_invalid_dimensions
-Create sample game board with 1 row by 3 columns of “r”. Check that the function raises a TypeError exception and displays a ‘expected 6 rows by 7 columns in game board’ message.
-
-3. test_show_game_board_invalid_table_contents
-Create sample game board with 6 row by 7 columns of “rowdy”. Check that the function raises a TypeError exception and displays a ‘expected maximum one character as game board table  entries’ message.
 
 prompt_player_name()
 /*

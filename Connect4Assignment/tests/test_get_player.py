@@ -34,8 +34,19 @@ class GetPlayerTest(unittest.TestCase):
             ["Gee", "b"],
             ["George", "r"]
         ]
-        with self.assertRaises(IndexError):
-            self.new_model.get_player(6)
+
+        self.assertEqual(self.new_model.get_player(6), None)
+
+    def test_get_player_invalid_arg(self):
+        """Set up players model attribute with [["Gee", "b"], ["George",
+        "r"]] Check that the function raises an IndexError exception when
+        called with a string passed in for player."""
+        self.new_model.players = [
+            ["Gee", "b"],
+            ["George", "r"]
+        ]
+
+        self.assertEqual(self.new_model.get_player("Yoyoyo"), None)
 
 
 if __name__ == '__main__':

@@ -18,6 +18,22 @@ decrement_token_count(): None
 Check that the function subtracts one from the token_count.
 
 
+is_column_open(int): boolean
+/*
+Return True if the chosen column is open in the game_board or False if it is
+full. Return None when called with a non-existent column.
+*/
+1. test_is_open_column_non_full_column
+Set up game_board to have a non-full column. Check that True is returned.
+
+2. test_is_open_column_full_column
+Set up game_board to have a full column. Check that False is returned.
+
+3. test_is_open_column_non_existent
+Set up game_board. Check that None is returned when the argument points to an
+non-existent column.
+
+
 get_game_board(): list of list of string
 /*
 Returns the game_board data structure
@@ -27,17 +43,26 @@ Set up a game board. Check that the same data is returned.
 
 place_token(int, str): boolean
 /*
-Adds token passed in into the column that’s passed in. Return False (unsuccessful operation) if the selected column is full, otherwise return True. Raises an invalid arg exception when called with an invalid arg. Int is btw 0 and 6 and str has to be either “r” or “b”.
+Adds token passed in into the column that’s passed in. Return False
+(unsuccessful operation) if the selected column is full, otherwise return
+True. Return None when called with an invalid arg, such as int outside of the
+ range 0 to 6 or str being other than either “r” or “b”.
 */
 
-1.  test_place_token_full_column
-Set up game_board to have a full column. Check that token is  NOT added to this column, and that False is returned.
+1.  test_place_token_non_full_column
+Set up game_board to have a non full column. Check that token is  added to
+this column, and that True is returned.
 
-2.  test_place_token_non_full_column
-Set up game_board to have a non full column. Check that token is  added to this column, and that True is returned.
+2.  test_place_token_full_column
+Set up game_board to have a full column. Check that token is  NOT added to
+this column, and that False is returned.
 
-3. test_place_token_invalid_arg
-Check if function raises an invalid arg exception when called with a invalid string and/or int arg
+3. test_place_token_non_existent
+Check that function returns None when called with an int that points to a
+non-existent column.
+
+4. test_place_token_invalid_arg
+Check that function returns None when called with a invalid color.
 
 
 get_player(int): list
@@ -59,12 +84,12 @@ Check if function raises an invalid arg exception when called with a string arg
 
 switch_active_player():
 /*
-this function switches the active player variable to the other player
+This function switches the active player variable to the other player
 */
-1. test_switch_active_player_one
+1. test_switch_active_player_zero
 Check the function changes the active_player attribute from 0 to 1
 
-2. test_switch_active_player_two
+2. test_switch_active_player_one
 Check the function changes the active_player attribute from 1 to 0
 
 

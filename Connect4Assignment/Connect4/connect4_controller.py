@@ -1,12 +1,17 @@
 __author__ = 'summerlynbryant'
 
-class Connect4View:
+from Connect4 import connect4_model, connect4_view
+
+
+
+class Connect4Controller:
     """
 
     """
 
     def __init__(self):
-        pass
+        self.model = connect4_model.Connect4Model()
+        self.view = connect4_view.Connect4View()
 
 
     def show_instructions(self):

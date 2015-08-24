@@ -65,7 +65,8 @@ Set token to 5 and check to return False
 
 is_column_open(int): Bool
 /*
-Return True if the chosen column is open in the game_board, else returns False
+Return True if the chosen column is open in the game_board or False if it is
+full. Return None when called with a non-existent column.
 */
 
 1. test_is_column_open():Bool
