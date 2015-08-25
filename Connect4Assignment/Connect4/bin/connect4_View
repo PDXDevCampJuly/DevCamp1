@@ -27,7 +27,7 @@ Tell player with name and color passed in to make a move and return player’s m
 We mock the standard input and provide 3 as the user input.Check that function returns 3.
 
 2. test_move_prompt_invalid_move
-We mock the standard input and provide “baad”, 7, 2 as the user input. Check that the player is re-prompted the first two times, then 2 is returned.
+We mock the standard input and provide 7, 2 as the user input. Check that the player is re-prompted the first time, then 2 is returned.
 
 
 show_game_board(list of list of str)

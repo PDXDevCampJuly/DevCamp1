@@ -1,6 +1,7 @@
 __author__ = 'summerlynbryant'
 
-from Connect4 import connect4_model, connect4_view
+import connect4_model
+import connect4_view
 
 
 class Connect4Controller:

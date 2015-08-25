@@ -1,0 +1,20 @@
+tbody {
+    background-color: #05807e;
+    font-size: 15pt;
+    border: solid 6px;
+    border-color: #800e23;
+
+}
+
+body {
+    background-color: #0e6280;
+    font-size: 15pt;
+    border: solid 6px;
+    border-color: #80300e;
+}
+
+font {
+    font-family: fantasy;
+    color: #a9fff2;
+
+}
