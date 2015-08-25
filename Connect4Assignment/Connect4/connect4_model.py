@@ -30,7 +30,7 @@ class Connect4Model:
         :param column: int
         :return: boolean/None
         """
-        if column < 0 or column > 5:
+        if column < 0 or column > 6:
             return None
         elif len(self.game_board[column]) < 6:
             return True

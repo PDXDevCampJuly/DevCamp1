@@ -22,10 +22,10 @@ class PromptPlayerToMoveTest(unittest.TestCase):
         text_move = 'Your move.\n'
         self.assertEqual(move, 3)
 
-    @patch('builtins.input', side_effect=["baad", 7, 2])
-    def test_move_prompt_invalid_move(self,inputted_value):
-        """We mock the standard input and provide “baad”, 7, 2 as the user
-        input. Check that the player is re-prompted the first two times,
+    @patch('builtins.input', side_effect=[7, 2])
+    def test_move_prompt_invalid_move(self, inputted_value):
+        """We mock the standard input and provide 7, 2 as the user
+        input. Check that the player is re-prompted the first time,
         then 2 is returned."""
         move = self.new_view.prompt_player_to_move("George", "r")
 

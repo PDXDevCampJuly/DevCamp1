@@ -3,69 +3,131 @@ __author__ = 'summerlynbryant'
 from Connect4 import connect4_model, connect4_view
 
 
-
 class Connect4Controller:
-    """
-
-    """
+    """ This is the Controller class for the Connect4 game. """
 
     def __init__(self):
         self.model = connect4_model.Connect4Model()
         self.view = connect4_view.Connect4View()
 
-
-    def show_instructions(self):
-        pass
-
-
-    def declare_winner(self, player):
-        pass
-
-
-    def declare_draw(self):
-        pass
-
-
-    def prompt_player_to_move(self, player_name, color):
-        """
-        Tell player with name and color passed in to make a move and return
-        player’s move. If player inputs something other than an int between 0
-        and 6, re-prompt.
-        :param player_name: string
-        :param color: string
-        :return: int
-        """
-
+    def start_game(self):
+        """This is the main function that runs the whole game """
+        self.view.show_instructions()
+        self.add_new_player(0)
+        self.add_new_player(1)
         while True:
+            active_player = self.model.get_active_player()
+            player_name, color = self.model.get_player(active_player)
+            self.view.show_game_board(self.model.get_game_board())
+            move = self.view.prompt_player_to_move(player_name, color)
 
-            print('Your move.')
-            move = input()
-            if type(move) != type(1) or move > 6 or move < 0:
-                print('Invalid move. Try again!')
+            if not self.model.place_token(move, color):
+                print("Couldn't place token.")
                 continue
-            return move
 
-    def show_game_board(self, game_board):
-        """
-        Shows the current view of the game_board.
-        """
+            self.model.decrement_token_count()
+            if self.check_connect_four():
+                self.view.show_game_board(self.model.get_game_board())
+                self.view.declare_winner(player_name)
+                break
 
-        for i in range(5, -1, -1):
-            row = ''
-            for column in game_board:
-                if i < len(column):
-                    row = row + column[i] + ','
-                else:
-                    row = row + ' ,'
-            row = row[:-1]
-            print(row)
+            if self.check_draw():
+                self.view.show_game_board(self.model.get_game_board())
+                self.view.declare_draw()
+                break
 
-    def prompt_player_name(self):
-        """
-        To either player print ‘What’s your name?’ and returns a name
-        :return: string
-        """
-        print("What’s your name?")
-        player_name = input()
+            self.model.switch_active_player()
 
-        return player_name
+    def add_new_player(self, player):
+        """Prompt player for name and stores it in the players attribute
+        that corresponds to the arg, player 0 is assigned color "r", and
+        player 1 is assigned "b" """
+        player_name = self.view.prompt_player_name()
+        self.model.players[player] = [player_name, "r" if player == 0 else "b"]
+
+    def switch_player(self):
+        """This function switches the player’s turn."""
+        self.model.switch_active_player()
+
+    def check_connect_four(self):
+        """Analyze the game_board and return True if a winning pattern is
+        found, else return False."""
+        game_board = [
+            ["0", "0", "0", "0", "0", "0"],
+            ["0", "0", "0", "0", "0", "0"],
+            ["0", "0", "0", "0", "0", "0"],
+            ["0", "0", "0", "0", "0", "0"],
+            ["0", "0", "0", "0", "0", "0"],
+            ["0", "0", "0", "0", "0", "0"],
+            ["0", "0", "0", "0", "0", "0"]
+        ]
+
+        # Augment game board to have full length columns
+        gb = self.model.get_game_board()
+        for row_idx, column in enumerate(gb):
+            for col_idx, element in enumerate(column):
+                game_board[row_idx][col_idx] = element
+
+        # vertical check
+        # Check each consecutive four tokens in each column starting with
+        # positions 0, 1, and 2
+        for col in game_board:
+            for i in range(3):
+                token = col[i]
+                if token == "r" or token == "b":
+                    if token == col[i + 1] and token == col[i + 2] and token \
+                            == col[i + 3]:
+                        return True
+
+        # horizontal check
+        # Check each consecutive four tokens in each row starting with
+        # positions 0, 1, 2, 3
+        transposed = [[row[i] for row in game_board] for i in range(6)]
+        for col in transposed:
+            for i in range(4):
+                token = col[i]
+                if token == "r" or token == "b":
+                    if token == col[i + 1] and token == col[i + 2] and token \
+                            == col[i + 3]:
+                        return True
+
+        # Diagonal check
+        # Check each consecutive four tokens in each column starting with
+        # positions 0, 1, and 2
+        gb = game_board
+        for r in range(4):
+            for k, col in enumerate(game_board):
+                for i in range(3):
+                    token = gb[r][i]
+                    if token == "r" or token == "b":
+                        if token == gb[r + 1][i + 1] and \
+                                        token == gb[r + 2][i + 2] and \
+                                        token == gb[r + 3][i + 3]:
+                            return True
+
+        # Check each consecutive four tokens in each column starting with
+        # positions 0, 1, and 2
+        transposed = []
+        for i in reversed(game_board):
+            transposed.append(i)
+        gb = transposed
+        for r in range(4):
+            for k, col in enumerate(transposed):
+                for i in range(3):
+                    token = gb[r][i]
+                    if token == "r" or token == "b":
+                        if token == gb[r + 1][i + 1] and \
+                                        token == gb[r + 2][i + 2] and \
+                                        token == gb[r + 3][i + 3]:
+                            return True
+        # All checks failed
+        return False
+
+    def check_draw(self):
+        """Checks the the get_token_count.  If the token count is 0, then
+        return True, else return False."""
+        return self.model.get_token_count() == 0
+
+if __name__ == "__main__":
+    connect4 = Connect4Controller()
+    connect4.start_game()

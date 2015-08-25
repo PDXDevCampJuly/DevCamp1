@@ -28,12 +28,12 @@ class ShowGameBoardTest(unittest.TestCase):
             ["b", "b", "r"],
             ["r"]
         ]
-        game_board_view = " , , , , , , \n"\
-                          " , , , , , , \n" \
-                          " , ,b, , , , \n" \
-                          "r,b,r, , ,r, \n" \
-                          "r,r,r, ,r,b, \n" \
-                          "b,r,b, ,b,b,r\n"
+        game_board_view = "| , , , , , , |\n"\
+                          "| , , , , , , |\n" \
+                          "| , ,b, , , , |\n" \
+                          "|r,b,r, , ,r, |\n" \
+                          "|r,r,r, ,r,b, |\n" \
+                          "|b,r,b, ,b,b,r|\n"
         self.new_view.show_game_board(game_board)
         self.assertEqual(mock_stdout.getvalue(), game_board_view)
 

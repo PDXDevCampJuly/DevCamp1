@@ -29,7 +29,7 @@ class PlaceTokenTest(unittest.TestCase):
 
         return_value = self.new_model.place_token(2, "r")
         self.assertEqual(len(self.new_model.game_board[2]), 6)
-        self.assertEqual(return_value, None)
+        self.assertEqual(return_value, False)
 
     def test_place_token_non_full_column(self):
         """Set up game_board to have a non full column. Check that token is

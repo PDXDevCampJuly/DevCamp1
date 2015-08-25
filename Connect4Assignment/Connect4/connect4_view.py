@@ -8,18 +8,16 @@ class Connect4View:
     def __init__(self):
         pass
 
-
     def show_instructions(self):
-        pass
+        print("\nTwo players for the game. 1st player is assigned the 'r' "
+              "token. \n2nd player is assigned the 'b' token. \nOne your turn,"
+              " choose a column from 0 to 6 and try to CONNECT 4!)\n")
 
-
-    def declare_winner(self, player):
-        pass
-
+    def declare_winner(self, player_name):
+        print("{} Oh my god you WON!".format(player_name))
 
     def declare_draw(self):
-        pass
-
+        print("You both lose!")
 
     def prompt_player_to_move(self, player_name, color):
         """
@@ -33,12 +31,12 @@ class Connect4View:
 
         while True:
 
-            print('Your move.')
+            print('{} Your move.'.format(player_name))
             move = input()
-            if type(move) != type(1) or move > 6 or move < 0:
+            if int(move) > 6 or int(move) < 0:
                 print('Invalid move. Try again!')
                 continue
-            return move
+            return int(move)
 
     def show_game_board(self, game_board):
         """
@@ -46,13 +44,13 @@ class Connect4View:
         """
 
         for i in range(5, -1, -1):
-            row = ''
+            row = '|'
             for column in game_board:
                 if i < len(column):
                     row = row + column[i] + ','
                 else:
                     row = row + ' ,'
-            row = row[:-1]
+            row = row[:-1] + '|'
             print(row)
 
     def prompt_player_name(self):
