@@ -2,31 +2,32 @@
  * Created by summerlynbryant on 8/28/15.
  */
 
-function captureForm() {
-    // do some stuff with the values in the form
-    // stop form from being submitted
-}
+var form = document.getElementById('signup');
 
-
-
-var email = document.getElementsByName('email').value;
-var submit = document.getElementById('submit');
-
-function emailValidate(email) {
-    var regex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-    var valid = regex.test(email);
-    if (!valid) {
-        alert("You have entered an invalid email. Please enter a valid email address.");
+function formValidate(e) {
+    e.preventDefault();
+    var name = e.target.querySelector("[name=name]");
+    if (name.value < 1) {
+        alert("You're close, but give me a little something.");
+        return false;
+        }
+    var username = e.target.querySelector("[name=username]");
+    if (username.value < 1) {
+        alert(" At least one letter is all I need!");
         return false;
     }
-    return true;
+
+    var email = e.target.querySelector("[name=email]");
+    var regex = /[^@] +@[^@]+/;
+    var valid = regex.test(email.value);
+    if (!valid) {
+        alert("An invalid email, you have entered. Enter a valid email");
+        return false;
+    }
+
+    sessionStorage.setItem("name", name.value);
+    document.location.href="http://localhost:63342/untitled/javapic/gallery.html";
 }
 
-submit.onsubmit = emailValidate(email);
-
-
-
-
-
-
+form.addEventListener("submit",formValidate,false);
 

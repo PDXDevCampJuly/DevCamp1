@@ -2,13 +2,12 @@
  * Created by summerlynbryant on 8/28/15.
  */
 
-var el = document.getElementsByClassName("tagline");
+var el = document.querySelector(".tagline");
+console.log(el);
 var welcome = el.textContent;
 var galleryGreeting = "develop something beautiful, ";
-var name = "";
-var galleryGreetingName = galleryGreeting + name;
-
-
+var name = sessionStorage.getItem("name");
+el.textContent = galleryGreeting + name;
 
 
 var gallery = document.getElementById('gallery');
@@ -21,7 +20,6 @@ var generateGallery = function () {
 		if (i < 10) {
 			i = "0" + i;
 		}
-
 		galleryHTML += '<li>';
 		galleryHTML += '<a href="images/pdxcg_';
 		galleryHTML += i + '.jpg" data-lightbox="gallery">';

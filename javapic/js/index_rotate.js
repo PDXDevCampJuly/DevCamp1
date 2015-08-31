@@ -1,8 +1,6 @@
 var jumbotron = document.getElementById("jumbotron");
-
 //Image cycling function
 var i = 1;
-
 var nextImage = function () {
 		if(i < 10) {
 			i = "0" + i;
