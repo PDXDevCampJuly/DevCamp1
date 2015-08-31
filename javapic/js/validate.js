@@ -4,6 +4,7 @@
 
 var form = document.getElementById('signup');
 
+/// validating certain things get entered into the form
 function formValidate(e) {
     e.preventDefault();
     var name = e.target.querySelector("[name=name]");
@@ -16,7 +17,7 @@ function formValidate(e) {
         alert(" At least one letter is all I need!");
         return false;
     }
-
+    // Regular expression was used for an exact format for email.
     var email = e.target.querySelector("[name=email]");
     var regex = /[^@]+@[^@]+.[^@]/;
     var valid = regex.test(email.value);
@@ -24,10 +25,12 @@ function formValidate(e) {
         alert("Entered an invalid email, you have. Enter a valid email, you must");
         return false;
     }
-
+    //this stores the name value so that it can be passed into the gallery
     sessionStorage.setItem("name", name.value);
+    // this directs user to the gallery page after all validation has
+    // happened for correct information entered
     document.location.href="http://localhost:63342/untitled/javapic/gallery.html";
 }
-
+//this is an event Listener for the submit button click
 form.addEventListener("submit",formValidate,false);
 

@@ -1,7 +1,8 @@
 /**
  * Created by summerlynbryant on 8/28/15.
  */
-
+    //this takes the stored 'name' from validate.js and adds it to the
+    // gallery greeting
 var el = document.querySelector(".tagline");
 console.log(el);
 var welcome = el.textContent;
@@ -11,7 +12,8 @@ el.textContent = galleryGreeting + name;
 
 
 var gallery = document.getElementById('gallery');
-
+//this function generates the gallery . I used an open source lightbox to
+// generate the clickable images to pull up a single larger image
 var generateGallery = function () {
 	var galleryHTML = '<ul>';
 
@@ -20,6 +22,8 @@ var generateGallery = function () {
 		if (i < 10) {
 			i = "0" + i;
 		}
+		// concatonating  image within the li that starts and ends with same
+		// format. I included the open source lightbox data as well.
 		galleryHTML += '<li>';
 		galleryHTML += '<a href="images/pdxcg_';
 		galleryHTML += i + '.jpg" data-lightbox="gallery">';
@@ -31,5 +35,5 @@ var generateGallery = function () {
 	galleryHTML += '</ul>';
 	gallery.innerHTML = galleryHTML;
 };
-
+// called the function to generate the pretty gallery
 generateGallery();
