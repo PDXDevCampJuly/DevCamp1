@@ -18,10 +18,10 @@ function formValidate(e) {
     }
 
     var email = e.target.querySelector("[name=email]");
-    var regex = /[^@] +@[^@]+/;
+    var regex = /[^@]+@[^@]+.[^@]/;
     var valid = regex.test(email.value);
     if (!valid) {
-        alert("An invalid email, you have entered. Enter a valid email");
+        alert("Entered an invalid email, you have. Enter a valid email, you must");
         return false;
     }
 
