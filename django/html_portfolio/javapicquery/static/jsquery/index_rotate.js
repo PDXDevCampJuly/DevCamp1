@@ -10,7 +10,7 @@ var nextImage = function () {
 			i = "0" + i;
 		}
 
-		imgSrc = "images/pdxcg_" + i + ".jpg";
+		imgSrc = "../static/images/pdxcg_" + i + ".jpg";
    	 	$jumbotron.css("background-image", "url(" + imgSrc + ")");
     	i++;
 };

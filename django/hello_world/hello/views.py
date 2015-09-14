@@ -5,7 +5,7 @@ def index(request):
     content = {"someadjective": 'Awesome',
                "somename": 'Summer'
               }
-    return render(request, 'index.html', content)
+    return render(request, 'about.html', content)
 
 def corgisareawesome(request):
     return HttpResponse("Corgis are awesome! <a href='./'>Homepage!</a>")

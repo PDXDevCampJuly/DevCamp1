@@ -18,10 +18,10 @@ var $divChild = $("#image_show > img");
 // making a FOR loop to make the image names
 for (i = 1; i <= imageMax; i++) {
 	if (i < 10) {
-		imageList.push("images/pdxcg_0" + i + ".jpg");
+		imageList.push("../static/images/pdxcg_0" + i + ".jpg");
 	}
 	else {
-		imageList.push("images/pdxcg_" + i + ".jpg");
+		imageList.push("../static/images/pdxcg_" + i + ".jpg");
 	}
 }
 //console.log(imageList);

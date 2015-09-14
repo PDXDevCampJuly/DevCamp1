@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>javapic</title>
-    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
 
 </head>
 <body>
@@ -23,7 +25,7 @@
     </section>
 </main>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="../static/jsquery/validate.js"></script>
+<script type="text/javascript" src="{% static "jsquery/validate.js" %}"></script>
 
 </body>
 </html>

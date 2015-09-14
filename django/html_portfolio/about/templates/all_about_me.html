@@ -1,7 +1,10 @@
 <!DOCTYPE html>
+
+{% load staticfiles %}
+
 <title> All about me. </title>
 
-<link rel="stylesheet" type="text/css" href="rockstarstyle.css">
+<link rel="stylesheet" type="text/css" href="{% static "css/rockstarstyle.css" %}">
 
 <body>
 
@@ -12,7 +15,7 @@
     <br> Rock Star </h1>
 
 
-<img src="summer.jpg" alt="Summer pausing for a smile." align="center" width="400px"/>
+<img src="../static/summer.jpg" alt="Summer pausing for a smile." align="center" width="400px"/>
 
 
 <article>
@@ -23,10 +26,11 @@
 
 
     <nav>
-        <li><a href="join.html" target="_blank">JavaPic Prettiness</a></li>
-        <li><a href=".html" target="_blank">Query Qualifying</a></li>
-        <li><a href="zen_mockup.html" target="_blank">Zenfully Zen</a></li>
-        <li><a href="FakeForum.html" target="_blank">Forum Fun</a></li>
+        <li><a href="../about/" target="_blank">Homepage</a></li>
+        <li><a href="../javapic/" target="_blank">JavaPic Prettiness</a></li>
+        <li><a href="../javapicquery/" target="_blank">Query Qualifying</a></li>
+        <li><a href="../zen_mockup/" target="_blank">Zenfully Zen</a></li>
+        <li><a href="../forum/" target="_blank">Forum Fun</a></li>
     </nav>
   <section>
       <h3> ~It's all about the passion~ </h3>
@@ -63,7 +67,7 @@
 
 
        <h2> ~When I dance ~ </h2>
-       <img src="CalvinHobbesdance.gif" alt="Calvin and Hobbes dancing together" align="middle" width="400px"/>
+       <img src="../static/CalvinHobbesdance.gif" alt="Calvin and Hobbes dancing together" align="middle" width="400px"/>
 
       <h2> ~ I am free~ </h2>
 

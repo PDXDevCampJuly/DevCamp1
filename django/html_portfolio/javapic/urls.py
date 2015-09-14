@@ -5,10 +5,7 @@ urlpatterns = [
     # Examples:
     # url(r'^$', 'hello_world.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-    url(r'^$', views.index, name='index'),
-    url(r'^join', views.join, name='join'),
-    url(r'^gallery', views.gallery, name='gallery'),
-
-
-
+    url(r'^$', views.javapicindex, name='homejavapic'),
+    url(r'^join.html', views.javapicjoin, name='join'),
+    url(r'^gallery.html', views.javapicgallery, name='gallery'),
 ]

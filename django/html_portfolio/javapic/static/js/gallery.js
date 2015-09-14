@@ -10,6 +10,8 @@ var galleryGreeting = "develop something beautiful, ";
 var name = sessionStorage.getItem("name");
 el.textContent = galleryGreeting + name;
 
+console.log('hello');
+
 
 var gallery = document.getElementById('gallery');
 //this function generates the gallery . I used an open source lightbox to
@@ -17,7 +19,7 @@ var gallery = document.getElementById('gallery');
 var generateGallery = function () {
 	var galleryHTML = '<ul>';
 
-	for (i = 1; i <= 60; i++) {
+	for (var i = 1; i <= 60; i++) {
 
 		if (i < 10) {
 			i = "0" + i;
@@ -25,9 +27,9 @@ var generateGallery = function () {
 		// concatonating  image within the li that starts and ends with same
 		// format. I included the open source lightbox data as well.
 		galleryHTML += '<li>';
-		galleryHTML += '<a href="images/pdxcg_';
+		galleryHTML += '<a href="../static/images/pdxcg_';
 		galleryHTML += i + '.jpg" data-lightbox="gallery">';
-		galleryHTML += '<img src="images/pdxcg_';
+		galleryHTML += '<img src="../static/images/pdxcg_';
 		galleryHTML += i + '.jpg">';
 		galleryHTML += '</a></li>';
 	}
@@ -36,4 +38,5 @@ var generateGallery = function () {
 	gallery.innerHTML = galleryHTML;
 };
 // called the function to generate the pretty gallery
+console.log('hello');
 generateGallery();

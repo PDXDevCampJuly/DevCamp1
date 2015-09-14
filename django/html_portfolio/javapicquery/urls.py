@@ -5,8 +5,8 @@ urlpatterns = [
     # Examples:
     # url(r'^$', 'hello_world.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-    url(r'^$', views.indexjq, name='index'),
-    url(r'^join', views.joinjq, name='join'),
-    url(r'^gallery', views.galleryjq, name='gallery'),
+    url(r'^$', views.javapicqueryindex, name='home'),
+    url(r'^join', views.javapicqueryjoin, name='join'),
+    url(r'^gallery', views.javapicquerygallery, name='gallery'),
 
 ]

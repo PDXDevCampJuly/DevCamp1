@@ -29,7 +29,7 @@ function formValidate(e) {
     sessionStorage.setItem("name", name.value);
     // this directs user to the gallery page after all validation has
     // happened for correct information entered
-    document.location.href="../../templates/gallery.html";
+    document.location.href="gallery.html";
 }
 //this is an event Listener for the submit button click
 form.addEventListener("submit",formValidate,false);

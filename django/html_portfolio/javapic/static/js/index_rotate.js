@@ -9,7 +9,7 @@ var nextImage = function () {
 			i = "0" + i;
 		}
 
-		imgSrc = "images/pdxcg_" + i + ".jpg";
+		imgSrc = "../static/images/pdxcg_" + i + ".jpg";
     	document.getElementById("jumbotron").style.background = 'url(' + imgSrc + ')';
     	i++;
 }

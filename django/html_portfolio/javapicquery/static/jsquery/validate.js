@@ -26,7 +26,7 @@ function formValidate(e) {
     sessionStorage.setItem("name", name.value);
     // this directs user to the gallery page after all validation has
     // happened for correct information entered
-    document.location.href="../../../../../javapicquery/galleryjq.html";
+    document.location.href="/galleryjq.html";
 }
 //this is an jquery event Listener for the submit button click
 $("#signup").submit(formValidate);
