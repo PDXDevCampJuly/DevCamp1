@@ -6,6 +6,6 @@ urlpatterns = [
     # url(r'^$', 'hello_world.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^$', views.javapicindex, name='homejavapic'),
-    url(r'^join.html', views.javapicjoin, name='join'),
-    url(r'^gallery.html', views.javapicgallery, name='gallery'),
+    url(r'^join', views.javapicjoin, name='join'),
+    url(r'^gallery', views.javapicgallery, name='gallery'),
 ]
