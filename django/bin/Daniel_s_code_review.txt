@@ -1,0 +1,16 @@
+Summer Django Review:table of contents:Your links function as they should. Extra points for making them all alliterations.About Me:Nice job making the about/_me page link to the rest of the portfolio.Your table of contents and about page are contained within the same folder. The website would be more clear if the table of contents was displayed at http://192.168.1.151:5555/ and the about page displayed at http://192.168.1.151:5555/about/. This can be done by adding the following to the html portfolio urls:        from about.views import tableofcontents
+       url(r'^$', (file path), (name urls) )JavaPic Prettiness:The javapic website links and functions properly. Everything is where it's supposed to be.Query Qualifying:Everything here looks good as well.Zenfully Zen:Looks good.Forum:same.Summary:Your Django project is solid. All the links and websites are functioning properly. My only criticism is the organization of the about and table of contents pages, and that can be a matter of personal preference. If you decide to keep that as it is, I think you're ready to submit.
+summerlyn Summer's Re-review for Attila's code
+
+Attila!  
+
+Excellent!  I went through all the files again and saw the clean-up. After a second look, I saw what you did on your CSS with the image. Cool!  
+
+Everything looks good. Straight forward, concise, and easy to read.
+
+Thanks again!
+
+wrap
+
+Today at 9:54 AM • 245b Plain Text snippet • Private snippet
+shift+enter to add a new line	
