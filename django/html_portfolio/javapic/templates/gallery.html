@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javapic</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+    <link rel="stylesheet" href="{% static "css/lightbox.css" %}" />
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+</head>
+<body>
+<main class="gallery_page">
+    <header>javapic <span class="tagline">develop something beautiful, tiffany</span></header>
+
+    <section id="gallery" class="gallery">
+
+    </section>
+
+    <div id="image_show" class="display_none"><img src="../static/images/pdxcg_40.jpg" /></div>
+</main>
+
+<script type="text/javascript" src="{% static "js/gallery.js" %}"></script>
+<script type="text/javascript" src="{% static "js/lightbox/lightbox.js"%}"></script>
+<!--// I used open source lightbox script and css to get the cool design of the -->
+<!--??lightbox-->
+
+</body>
+</html>
+

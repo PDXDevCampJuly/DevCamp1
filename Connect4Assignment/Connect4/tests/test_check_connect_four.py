@@ -1,14 +1,14 @@
 __author__ = 'summerlynbryant'
 
 import unittest
-from Connect4 import connect4_controller
+from connect4_controller import Connect4Controller
 
 
 class CheckConnectFourTest(unittest.TestCase):
     """Test functionality of check_connect_four function."""
 
     def setUp(self):
-        self.new_controller = connect4_controller.Connect4Controller()
+        self.new_controller = Connect4Controller()
 
     def tearDown(self):
         del self.new_controller

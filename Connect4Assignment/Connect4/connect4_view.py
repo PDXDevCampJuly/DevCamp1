@@ -2,7 +2,7 @@ __author__ = 'summerlynbryant'
 
 class Connect4View:
     """
-
+      This class is part of what the User sees. Print statements and Prompts!
     """
 
     def __init__(self):

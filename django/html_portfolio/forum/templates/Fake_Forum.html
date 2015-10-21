@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<title> Fake Forum </title>
+<head>
+<link rel="stylesheet" type="text/css" href="{% static "css/Forumrockstarstyle.css" %}">
+<link href='http://fonts.googleapis.com/css?family=Tangerine:700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<main>
+    <section class="Post_it">
+        <h2>Talk to me</h2>
+
+        <form id="post" method="post" novalidate>
+            <label for="post">Post Title</label>
+            <input type="text" name="post_title" placeholder="post title" required/>
+            <label for="post">Tell me your thoughts</label>
+            <input type="text" name="post_thoughts" placeholder="innermost secrets" required/>
+            <input type="submit" name="submit" id="submit"
+                   value="Submit to the dark side"/>
+        </form>
+
+    </section>
+    <section id="output">
+
+    </section>
+</main>
+<script type="text/javascript"src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="{% static "js/Forum_exercise.js" %}"></script>
+</body>
